@@ -1,4 +1,6 @@
-# bet2wealth-terraform-state
+# Bet2Wealth Terraform State
+
+### bet2wealth-terraform-state
 
 Terraform codebase for provisioning the **Bet2wealth backend infrastructure on AWS**.
 
