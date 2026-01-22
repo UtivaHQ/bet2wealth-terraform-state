@@ -1,7 +1,6 @@
 # Provider
 provider "aws" {
   region  = var.region
-  profile = "abayomi-admin"
 }
 
 # Modules
