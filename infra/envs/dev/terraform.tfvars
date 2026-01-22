@@ -1,4 +1,12 @@
 backend_image = "070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-dev:latest"
+# Always pass the backend image to the terraform apply or plan command. 
+# terraform plan -var="backend_image=070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-dev:<sha>"
+# terraform apply -var="backend_image=070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-dev:<sha>"
+# sha is the image sha1 hash of the backend image in ECR after docker build.
+
+domain_name = "api.dev.bet2wealth.co"
+
+health_check_path = "/api/v1/health-check"
 
 # GitHub Actions OIDC + deploy role (dev)
 create_github_oidc_provider      = true
@@ -83,4 +91,6 @@ container_secrets = {
 
   GOOGLE_OAUTH_CLIENT_SECRET = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/GOOGLE_OAUTH_CLIENT_SECRET"
   GOOGLE_OAUTH_CLIENT_ID = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/GOOGLE_OAUTH_CLIENT_ID"
+
+  MAILERSEND_API_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/MAILERSEND_API_KEY"
 }
