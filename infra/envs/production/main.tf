@@ -1,6 +1,6 @@
 # Provider
 provider "aws" {
-  region  = var.region
+  region = var.region
 }
 
 # Modules
@@ -15,6 +15,8 @@ module "alb" {
   env            = var.env
   vpc_id         = module.vpc.vpc_id
   public_subnets = module.vpc.public_subnets
+  domain_name    = var.domain_name
+  health_check_path = var.health_check_path
 }
 
 module "ecr" {
@@ -23,13 +25,13 @@ module "ecr" {
 }
 
 module "iam" {
-  source                            = "../../modules/iam"
-  env                               = var.env
-  region                            = var.region
-  create_github_oidc_provider       = var.create_github_oidc_provider
-  create_github_actions_deploy_role = var.create_github_actions_deploy_role
-  github_repo                       = var.github_repo
-  github_branches                   = var.github_branches
+  source                                    = "../../modules/iam"
+  env                                       = var.env
+  region                                    = var.region
+  create_github_oidc_provider               = var.create_github_oidc_provider
+  create_github_actions_deploy_role         = var.create_github_actions_deploy_role
+  github_repo                               = var.github_repo
+  github_branches                           = var.github_branches
   github_actions_deploy_attach_admin_policy = var.github_actions_deploy_attach_admin_policy
 
 }
@@ -73,4 +75,8 @@ output "redis_endpoint" {
 
 output "github_actions_deploy_role_arn" {
   value = module.iam.github_actions_deploy_role_arn
+}
+
+output "cert_validation_records" {
+  value = module.alb.cert_validation_records
 }

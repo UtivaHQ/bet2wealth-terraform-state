@@ -7,6 +7,10 @@ resource "aws_ecr_repository" "this" {
     scan_on_push = true
   }
 
+  lifecycle {
+    prevent_destroy = true
+  }
+
   tags = {
     Terraform = "true"
     Environment = var.env

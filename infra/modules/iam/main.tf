@@ -22,6 +22,37 @@ resource "aws_iam_role_policy_attachment" "ecs_execution_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
+# Attach the ECS Execution Policy to the ECS Execution Role
+data "aws_caller_identity" "current" {}
+
+resource "aws_iam_role_policy" "ecs_execution_ssm_secrets" {
+  name = "ecs-execution-ssm-secrets-${var.env}"
+  role = aws_iam_role.ecs_execution_role.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "ssm:GetParameter",
+          "ssm:GetParameters",
+          "ssm:GetParametersByPath"
+        ]
+        Resource = "arn:aws:ssm:${var.region}:${data.aws_caller_identity.current.account_id}:parameter/bet2wealth/${var.env}/*"
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "secretsmanager:GetSecretValue",
+          "secretsmanager:DescribeSecret"
+        ]
+        Resource = "*"
+      }
+    ]
+  })
+}
+
 # ECS Task Role for the backend
 resource "aws_iam_role" "ecs_task_role" {
   name = "bet2wealth-backend-ecs-task-role-${var.env}"
@@ -73,10 +104,8 @@ resource "aws_iam_role_policy" "ecs_task_basic" {
 }
 
 # --------------------------------------------------------------------
-# Optional: GitHub Actions OIDC + deploy role (ECR push + ECS deploy)
+# GitHub Actions OIDC + deploy role (ECR push + ECS deploy)
 # --------------------------------------------------------------------
-
-data "aws_caller_identity" "current" {}
 
 locals {
   github_subjects = [
