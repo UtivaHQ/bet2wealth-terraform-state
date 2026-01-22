@@ -30,6 +30,7 @@ module "iam" {
   create_github_actions_deploy_role = var.create_github_actions_deploy_role
   github_repo                       = var.github_repo
   github_branches                   = var.github_branches
+  github_actions_deploy_attach_admin_policy = var.github_actions_deploy_attach_admin_policy
 
 }
 

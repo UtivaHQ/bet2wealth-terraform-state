@@ -53,3 +53,9 @@ variable "terraform_state_key_prefix" {
   type        = string
   default     = "backend"
 }
+
+variable "github_actions_deploy_attach_admin_policy" {
+  description = "Attach AWS managed AdministratorAccess to the GitHub Actions deploy role so it can run terraform plan/apply across the whole stack."
+  type        = bool
+  default     = false
+}

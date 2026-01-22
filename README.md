@@ -292,6 +292,16 @@ To make this work, the GitHub deploy role created by this repo includes:
 - `iam:PassRole` for the ECS task roles
 - **S3 remote state access** scoped to `backend/<env>/...` in the state bucket (defaults to `bet2wealth-terraform-state`)
 
+#### CI permissions note (important)
+
+If your pipeline runs Terraform (Option A), the GitHub deploy role must have permissions to **read and manage the full set of AWS resources** defined in this repo (VPC, ALB, ECS, IAM, ECR, ElastiCache, CloudWatch Logs, etc.).
+
+For quick enablement, this repo supports attaching AWS managed `AdministratorAccess` to the GitHub deploy role via:
+
+- `github_actions_deploy_attach_admin_policy = true`
+
+Once stable, you should replace this with a scoped least-privilege policy.
+
 If your remote state bucket or key prefix differs, set:
 
 - `terraform_state_bucket` (default: `bet2wealth-terraform-state`)

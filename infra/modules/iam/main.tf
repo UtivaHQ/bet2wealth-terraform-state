@@ -211,3 +211,10 @@ resource "aws_iam_role_policy" "github_actions_deploy" {
     ]
   })
 }
+
+resource "aws_iam_role_policy_attachment" "github_actions_deploy_admin" {
+  count = var.create_github_actions_deploy_role && var.github_actions_deploy_attach_admin_policy ? 1 : 0
+
+  role       = aws_iam_role.github_actions_deploy[0].name
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+}

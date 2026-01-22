@@ -56,3 +56,9 @@ variable "github_branches" {
   type        = list(string)
   default     = []
 }
+
+variable "github_actions_deploy_attach_admin_policy" {
+  description = "Attach AdministratorAccess to the GitHub Actions deploy role so CI can run terraform plan/apply."
+  type        = bool
+  default     = false
+}

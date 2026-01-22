@@ -5,6 +5,7 @@ create_github_oidc_provider      = true
 create_github_actions_deploy_role = true
 github_repo                      = "UtivaHQ/bet2wealth_backend"
 github_branches                  = ["develop"]
+github_actions_deploy_attach_admin_policy = true
 
 # Container environment variables
 # Non-secret env vars only
