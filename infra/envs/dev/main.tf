@@ -11,11 +11,11 @@ module "vpc" {
 }
 
 module "alb" {
-  source         = "../../modules/alb"
-  env            = var.env
-  vpc_id         = module.vpc.vpc_id
-  public_subnets = module.vpc.public_subnets
-  domain_name    = var.domain_name
+  source            = "../../modules/alb"
+  env               = var.env
+  vpc_id            = module.vpc.vpc_id
+  public_subnets    = module.vpc.public_subnets
+  domain_name       = var.domain_name
   health_check_path = var.health_check_path
 }
 

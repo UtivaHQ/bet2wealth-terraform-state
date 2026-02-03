@@ -9,10 +9,10 @@ domain_name = "api.dev.bet2wealth.co"
 health_check_path = "/api/v1/health-check"
 
 # GitHub Actions OIDC + deploy role (dev)
-create_github_oidc_provider      = true
-create_github_actions_deploy_role = true
-github_repo                      = "UtivaHQ/bet2wealth_backend"
-github_branches                  = ["develop"]
+create_github_oidc_provider               = true
+create_github_actions_deploy_role         = true
+github_repo                               = "UtivaHQ/bet2wealth_backend"
+github_branches                           = ["develop"]
 github_actions_deploy_attach_admin_policy = true
 
 # Container environment variables
@@ -67,20 +67,24 @@ container_environment = {
   # Paystack payments
   PAYSTACK_PUBLIC_KEY = "pk_test_a8f597d23f1a21f20b09ce328c69f29f95b661fb"
   PAYSTACK_BASE_URL   = "https://api.paystack.co"
+
+  # Fundist Integration
+  FUNDIST_API_URL           = "https://apitest.fundist.org/"
+  FUNDIST_CALLBACK_BASE_URL = "https://api.dev.bet2wealth.co"
 }
 
 # Secret environment variables
 container_secrets = {
   SENTRY_DSN = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/SENTRY_DSN"
 
-  JWT_SECRET = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/JWT_SECRET"
+  JWT_SECRET         = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/JWT_SECRET"
   JWT_REFRESH_SECRET = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/JWT_REFRESH_SECRET"
 
-  MONGO_HOST = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/MONGO_HOST"
+  MONGO_HOST        = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/MONGO_HOST"
   MONGO_SECURE_HOST = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/MONGO_SECURE_HOST"
-  MONGO_HOST_TEST = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/MONGO_HOST_TEST"
+  MONGO_HOST_TEST   = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/MONGO_HOST_TEST"
 
-  SMTP_USER = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/SMTP_USER"
+  SMTP_USER     = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/SMTP_USER"
   SMTP_PASSWORD = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/SMTP_PASSWORD"
 
   BITVILLE_PRIVATE_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/BITVILLE_PRIVATE_KEY"
@@ -90,7 +94,12 @@ container_secrets = {
   PAYSTACK_SECRET_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/PAYSTACK_SECRET_KEY"
 
   GOOGLE_OAUTH_CLIENT_SECRET = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/GOOGLE_OAUTH_CLIENT_SECRET"
-  GOOGLE_OAUTH_CLIENT_ID = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/GOOGLE_OAUTH_CLIENT_ID"
+  GOOGLE_OAUTH_CLIENT_ID     = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/GOOGLE_OAUTH_CLIENT_ID"
 
   MAILERSEND_API_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/MAILERSEND_API_KEY"
+
+  FUNDIST_API_KEY      = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_API_KEY"
+  FUNDIST_API_PASSWORD = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_API_PASSWORD"
+  FUNDIST_HMAC_SECRET  = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_SECRET_KEY"
+  FUNDIST_SYSTEM_ID    = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_SYSTEM_ID"
 }
