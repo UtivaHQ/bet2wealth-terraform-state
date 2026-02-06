@@ -28,7 +28,7 @@ variable "alb_security_group_id" {
   type        = string
 }
 
-variable "image_url" {
+variable "backend_image" {
   description = "Docker image in ECR"
   type        = string
 }

@@ -46,7 +46,7 @@ module "ecs" {
   target_group_arn      = module.alb.target_group_arn
   alb_security_group_id = module.alb.alb_security_group_id
 
-  image_url      = var.backend_image
+  backend_image  = var.backend_image
   container_port = var.backend_container_port
 
   execution_role_arn = module.iam.ecs_execution_role_arn

@@ -75,7 +75,7 @@ resource "aws_ecs_task_definition" "backend" {
   container_definitions = jsonencode([
     {
       name  = "backend"
-      image = var.image_url
+      image = var.backend_image
 
       environment = [
         for k, v in var.container_environment : {

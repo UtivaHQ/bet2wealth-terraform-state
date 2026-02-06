@@ -1,4 +1,4 @@
-backend_image = "070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-dev:latest"
+# backend_image = "070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-dev:latest"
 # Always pass the backend image to the terraform apply or plan command. 
 # terraform plan -var="backend_image=070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-dev:<sha>"
 # terraform apply -var="backend_image=070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-dev:<sha>"
@@ -100,6 +100,6 @@ container_secrets = {
 
   FUNDIST_API_KEY      = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_API_KEY"
   FUNDIST_API_PASSWORD = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_API_PASSWORD"
-  FUNDIST_HMAC_SECRET  = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_SECRET_KEY"
+  FUNDIST_HMAC_SECRET  = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_HMAC_SECRET"
   FUNDIST_SYSTEM_ID    = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_SYSTEM_ID"
 }

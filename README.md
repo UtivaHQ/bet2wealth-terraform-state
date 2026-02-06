@@ -125,7 +125,7 @@ Creates:
 - ECS service (Fargate) with `desired_count = 2`
 - CloudWatch Log Group: `/ecs/backend-logs-<env>`
 - Task definition with:
-  - container image `image_url`
+  - container image `backend_image`
   - port mappings from `container_port`
   - **plaintext** env vars via `container_environment` (map)
   - **secret** env vars via `container_secrets` (map of `KEY => ARN`)
