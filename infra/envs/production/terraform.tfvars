@@ -1,14 +1,14 @@
-# backend_image = "070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-production:latest"
+# backend_image = "070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-prod:latest"
 # Always pass the backend image to the terraform apply or plan command. 
-# terraform plan -var="backend_image=070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-production:<sha>"
-# terraform apply -var="backend_image=070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-production:<sha>"
+# terraform plan -var="backend_image=070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-prod:<sha>"
+# terraform apply -var="backend_image=070008302895.dkr.ecr.eu-central-1.amazonaws.com/bet2wealth-backend-prod:<sha>"
 # sha is the image sha1 hash of the backend image in ECR after docker build.
 
 domain_name = "api.bet2wealth.co"
 
 health_check_path = "/api/v1/health-check"
 
-# GitHub Actions OIDC + deploy role (production)
+# GitHub Actions OIDC + deploy role (prod)
 create_github_oidc_provider               = false
 create_github_actions_deploy_role         = true
 github_repo                               = "UtivaHQ/bet2wealth_backend"
@@ -36,7 +36,7 @@ container_environment = {
 
   MONGOOSE_DEBUG = false
 
-  REDIS_URL                  = "redis://master.bet2wealth-redis-cluster-production.naxfsj.euc1.cache.amazonaws.com:6379"
+  REDIS_URL                  = "redis://master.bet2wealth-redis-cluster-prod.naxfsj.euc1.cache.amazonaws.com:6379"
   REDIS_POOL_MAX             = 50
   REDIS_POOL_MIN             = 5
   REDIS_POOL_IDLE_TIMEOUT    = 300000
@@ -75,31 +75,31 @@ container_environment = {
 
 # Secret environment variables
 container_secrets = {
-  SENTRY_DSN = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/SENTRY_DSN"
+  SENTRY_DSN = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/SENTRY_DSN"
 
-  JWT_SECRET         = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/JWT_SECRET"
-  JWT_REFRESH_SECRET = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/JWT_REFRESH_SECRET"
+  JWT_SECRET         = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/JWT_SECRET"
+  JWT_REFRESH_SECRET = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/JWT_REFRESH_SECRET"
 
-  MONGO_HOST        = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/MONGO_HOST"
-  MONGO_SECURE_HOST = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/MONGO_SECURE_HOST"
-  MONGO_HOST_TEST   = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/MONGO_HOST_TEST"
+  MONGO_HOST        = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/MONGO_HOST"
+  MONGO_SECURE_HOST = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/MONGO_SECURE_HOST"
+  MONGO_HOST_TEST   = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/MONGO_HOST_TEST"
 
-  SMTP_USER     = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/SMTP_USER"
-  SMTP_PASSWORD = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/SMTP_PASSWORD"
+  SMTP_USER     = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/SMTP_USER"
+  SMTP_PASSWORD = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/SMTP_PASSWORD"
 
-  BITVILLE_PRIVATE_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/BITVILLE_PRIVATE_KEY"
+  BITVILLE_PRIVATE_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/BITVILLE_PRIVATE_KEY"
 
-  TERMII_API_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/TERMII_API_KEY"
+  TERMII_API_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/TERMII_API_KEY"
 
-  PAYSTACK_SECRET_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/PAYSTACK_SECRET_KEY"
+  PAYSTACK_SECRET_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/PAYSTACK_SECRET_KEY"
 
-  GOOGLE_OAUTH_CLIENT_SECRET = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/GOOGLE_OAUTH_CLIENT_SECRET"
-  GOOGLE_OAUTH_CLIENT_ID     = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/GOOGLE_OAUTH_CLIENT_ID"
+  GOOGLE_OAUTH_CLIENT_SECRET = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/GOOGLE_OAUTH_CLIENT_SECRET"
+  GOOGLE_OAUTH_CLIENT_ID     = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/GOOGLE_OAUTH_CLIENT_ID"
 
-  MAILERSEND_API_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/production/MAILERSEND_API_KEY"
+  MAILERSEND_API_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/MAILERSEND_API_KEY"
 
-  FUNDIST_API_KEY      = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_API_KEY"
-  FUNDIST_API_PASSWORD = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_API_PASSWORD"
-  FUNDIST_HMAC_SECRET  = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_HMAC_SECRET"
-  FUNDIST_SYSTEM_ID    = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_SYSTEM_ID"
+  FUNDIST_API_KEY      = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/FUNDIST_API_KEY"
+  FUNDIST_API_PASSWORD = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/FUNDIST_API_PASSWORD"
+  FUNDIST_HMAC_SECRET  = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/FUNDIST_HMAC_SECRET"
+  FUNDIST_SYSTEM_ID    = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/FUNDIST_SYSTEM_ID"
 }

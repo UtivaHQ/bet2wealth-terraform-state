@@ -7,7 +7,7 @@ variable "region" {
 variable "env" {
   description = "Environment name"
   type        = string
-  default     = "production"
+  default     = "prod"
 }
 
 variable "backend_container_port" {

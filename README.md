@@ -14,7 +14,7 @@ This repo is organized as:
 
 ## What this creates (high level)
 
-For each environment (`dev`, `production`) Terraform provisions:
+For each environment (`dev`, `prod`) Terraform provisions:
 
 - **Networking**: a VPC with public + private subnets (plus NAT for private egress)
 - **Load balancing**: a public **Application Load Balancer** that forwards to ECS tasks
@@ -350,7 +350,7 @@ terraform apply tfplan
 Each environment provides `backend_image` in `terraform.tfvars`, e.g.:
 
 - `.../bet2wealth-backend-dev:latest`
-- `.../bet2wealth-backend-production:latest`
+- `.../bet2wealth-backend-prod:latest`
 
 Common workflow:
 
