@@ -69,8 +69,9 @@ container_environment = {
   PAYSTACK_BASE_URL   = "https://api.paystack.co"
 
   # Fundist Integration
-  FUNDIST_API_URL           = "https://apitest.fundist.org/"
+  FUNDIST_API_BASE_URL           = "https://apitest.fundist.org/"
   FUNDIST_CALLBACK_BASE_URL = "https://api.dev.bet2wealth.co"
+  FUNDIST_CLIENT_IP = "35.156.93.146"
 }
 
 # Secret environment variables
