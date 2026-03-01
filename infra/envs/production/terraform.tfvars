@@ -28,6 +28,7 @@ container_environment = {
   SENTRY_ENV = "production"
 
   HOST_URL   = "https://api.bet2wealth.co"
+  FRONTEND_HOST_URL = "https://bet2wealth.co"
   ROOT_ENTRY = "/api/v1"
   API_DOCS   = "/api/v1/docs"
 
@@ -69,9 +70,14 @@ container_environment = {
   PAYSTACK_BASE_URL   = "https://api.paystack.co"
 
   # Fundist Integration
-  FUNDIST_API_BASE_URL      = "https://apitest.fundist.org/"
+  FUNDIST_API_BASE_URL      = "https://apiprod5.fundist.org/"
   FUNDIST_CALLBACK_BASE_URL = "https://api.bet2wealth.co"
   FUNDIST_CLIENT_IP         = "35.156.93.146"
+
+  # Prembly Integration
+  PREMBLY_BASE_URL="https://api.prembly.com"
+  PREMBLY_NIN_PATH="/verification/vnin-basic"
+  PREMBLY_BVN_PATH="/verification/bvn_validation"
 }
 
 # Secret environment variables
@@ -103,4 +109,7 @@ container_secrets = {
   FUNDIST_API_PASSWORD = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/FUNDIST_API_PASSWORD"
   FUNDIST_HMAC_SECRET  = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/FUNDIST_HMAC_SECRET"
   FUNDIST_SYSTEM_ID    = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/FUNDIST_SYSTEM_ID"
+
+  PREMBLY_API_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/PREMBLY_API_KEY"
+  PREMBLY_APP_ID = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/PREMBLY_APP_ID"
 }
