@@ -9,7 +9,7 @@ domain_name = "api.bet2wealth.co"
 health_check_path = "/api/v1/health-check"
 
 # GitHub Actions OIDC + deploy role (prod)
-create_github_oidc_provider               = false
+create_github_oidc_provider               = true
 create_github_actions_deploy_role         = true
 github_repo                               = "UtivaHQ/bet2wealth_backend"
 github_branches                           = ["main"]
@@ -111,5 +111,4 @@ container_secrets = {
   FUNDIST_SYSTEM_ID    = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/FUNDIST_SYSTEM_ID"
 
   PREMBLY_API_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/PREMBLY_API_KEY"
-  PREMBLY_APP_ID = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/PREMBLY_APP_ID"
 }

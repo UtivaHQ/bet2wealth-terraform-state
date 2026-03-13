@@ -111,5 +111,4 @@ container_secrets = {
   FUNDIST_SYSTEM_ID    = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/FUNDIST_SYSTEM_ID"
 
   PREMBLY_API_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/PREMBLY_API_KEY"
-  PREMBLY_APP_ID = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/dev/PREMBLY_APP_ID"
 }
