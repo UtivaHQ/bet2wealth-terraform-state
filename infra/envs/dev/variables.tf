@@ -48,19 +48,19 @@ variable "create_github_oidc_provider" {
 variable "create_github_actions_deploy_role" {
   description = "Whether to create an IAM role that GitHub Actions can assume (OIDC) to deploy to ECS/ECR for this environment."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "github_repo" {
   description = "GitHub repo in the form 'OWNER/REPO' (e.g. 'bet2wealth/bet2wealth-backend'). Required if create_github_actions_deploy_role is true."
   type        = string
-  default     = ""
+  default     = "UtivaHQ/bet2wealth_backend"
 }
 
 variable "github_branches" {
   description = "Branches allowed to assume the GitHub deploy role (e.g. ['main'] or ['develop'])."
   type        = list(string)
-  default     = []
+  default     = ["develop"]
 }
 
 variable "github_actions_deploy_attach_admin_policy" {
