@@ -97,6 +97,8 @@ container_secrets = {
   BITVILLE_PRIVATE_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/BITVILLE_PRIVATE_KEY"
 
   TERMII_API_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/TERMII_API_KEY"
+  TERMII_MAIL_FROM = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/TERMII_MAIL_FROM"
+  TERMII_MAIL_CONFIGURATION_ID = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/TERMII_MAIL_CONFIGURATION_ID"
 
   PAYSTACK_SECRET_KEY = "arn:aws:ssm:eu-central-1:070008302895:parameter/bet2wealth/prod/PAYSTACK_SECRET_KEY"
 
